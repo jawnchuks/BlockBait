@@ -1,45 +1,78 @@
-# nextjs-chrome-extension
+# BlockBait - Phish Blocking Chrome Extension
 
-An unopiniated starter for developing Chrome extensions using Next.js
+![BlockBait Banner](./public/images/blockbait-banner.png)
 
-<p align="center">
-<img src="./images/nextjs-chrome-extension.png" alt="Screenshot of nextjs-chrome-extension" width="616">
-</p>
-  
-## Getting Started
+BlockBait is a Chrome extension that helps protect users from phishing attacks by blocking known phishing websites. It is built using Next.js, Tailwind CSS, and Chrome APIs.
 
-First, install dependencies and build the project:
-```bash
-npm install && npm run build
-```
-This will create an `/out` directory that can you can add to Chrome as an extension. The `manifest.json` links `pages/index.js` to the generated `index.html`. On top of that, the `/public/inject.js` script is configured to run on any host url.
+## Installation
 
-Second, start developing:
-```bash
-npm run dev
-```
-You can start editing the extension by modifying `pages/index.js` or any file in `/public`. The extension will automatically re-build as you make changes.
+To install the BlockBait Chrome extension, follow these steps:
 
-**🚩 Note**: [`gsed`](https://formulae.brew.sh/formula/gnu-sed#default) is used during `build` and `development` steps to bundle the project in a Chrome extension. Therefore, you will need to have this CLI installed on your development machine.
-```bash
-brew install gsed // homebrew installation
-```
+1. Clone the repository:
+   ```
+   git clone [repository-url]
+   ```
 
-## Add extension to chrome
+2. Install dependencies:
+   ```
+   yarn install
+   ```
 
-Open the Extension Management page by navigating to `chrome://extensions`. Enable Developer Mode by clicking the toggle switch next to Developer mode. Click the Load unpacked button and select the `/out` directory.
+3. Build the extension:
+   ```
+   yarn build:extension
+   ```
 
-<p align="center">
-<img src="/images/add-extension-to-chrome.png" alt="Screenshot of chrome://extensions page" width="616">
-</p>
+   The `build:extension` script is a custom Node script defined in the `package.json` file. It runs Next.js build and export commands to generate the static files for the extension. The script also renames the files and replaces certain content to ensure compatibility with the Chrome extension structure.
 
-## Learn More
+4. Open the Chrome web browser and go to `chrome://extensions`.
 
-To learn more about Next.js or extensions, take a look at the following resources:
+5. Enable the `Developer mode` toggle switch.
 
-- [Chrome Extensions Documentation](https://developer.chrome.com/docs/extensions/)
+6. Click the `Load unpacked` button and select the `out` directory.
+
+7. The BlockBait extension should now be installed in your Chrome browser.
+
+## Usage
+
+Once the BlockBait extension is installed, it will automatically block known phishing websites and display notifications to the user. The extension works in the background and provides real-time protection against phishing attacks.
+
+## Folder Structure
+
+The folder structure of the BlockBait project is as follows:
+
+- `src`: Contains the source code of the extension.
+  - `styles`: Includes styling files for the extension.
+  - `pages`: Contains the main pages of the extension.
+  - `helpers`: Contains utility functions used in the extension.
+  - `components`: Contains reusable components used in the extension.
+- `public`: Contains static assets and configuration files.
+  - `manifest.json`: Configuration file for the Chrome extension.
+  - `static`: Includes JSON files for blacklist and whitelist data.
+  - `icons`: Contains icons used by the extension.
+  - `background`: Includes background scripts for the extension.
+  - `images`: Contains images used for the extension, including the banner image.
+- `out`: The output directory where the extension is built.
+
+## Contributing
+
+Contributions to the BlockBait project are welcome. If you find any issues or have suggestions for improvements, please create an issue or submit a pull request.
+
+## License
+
+The BlockBait project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more details.
+
+## Credits
+
+This project was inspired by the original PhishDetector Chrome extension. Special thanks to the contributors of the PhishDetector project.
+
+## Support
+
+If you encounter any issues or have questions about the BlockBait extension, please feel free to contact the project maintainers or open an issue on the repository.
+
+## Related Links
+
+<!-- - [Chrome Web Store](https://chrome.google.com/webstore/detail/blockbait-phish-blocking/kgecldbalfgmgelepbblodfoogmjdgmj) -->
 - [Next.js Documentation](https://nextjs.org/docs)
-
-This template was originally inspired by the following article, [Creating a Chrome Extension with NextJS](https://aaronscherer.me/blog/post/creating-a-chrome-extension-with-nextjs).
-
-
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Chrome Extensions Documentation](https://developer.chrome.com/docs/extensions/)

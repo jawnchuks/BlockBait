@@ -1,0 +1,41 @@
+import React from "react";
+
+const SecureIcon = () => {
+  return (
+    <svg
+      className="w-8 aspect-square"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clipPath="url(#clip0_53_1499)">
+        <path
+          d="M5 6.4L5.66667 7.06667L7 5.73334"
+          stroke="#1F6108"
+          strokeWidth="0.48"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M5.99999 3.40002C6.7786 4.08888 7.79481 4.44755 8.83332 4.40002C8.98452 4.91436 9.03078 5.45385 8.96936 5.98642C8.90794 6.51899 8.74009 7.03378 8.47579 7.5002C8.21148 7.96662 7.85612 8.37515 7.4308 8.70152C7.00549 9.02788 6.51891 9.26542 5.99999 9.40002C5.48106 9.26542 4.99448 9.02788 4.56917 8.70152C4.14386 8.37515 3.78849 7.96662 3.52418 7.5002C3.25988 7.03378 3.09203 6.51899 3.03061 5.98642C2.96919 5.45385 3.01545 4.91436 3.16665 4.40002C4.20516 4.44755 5.22137 4.08888 5.99999 3.40002Z"
+          stroke="#1F6108"
+          strokeWidth="0.48"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_53_1499">
+          <rect
+            width="8"
+            height="8"
+            fill="white"
+            transform="translate(2 2.39996)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export default SecureIcon;

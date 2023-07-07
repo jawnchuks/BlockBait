@@ -1,0 +1,65 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    scroll-behavior: smooth;
+    
+}
+
+
+.notification::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 5px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.notification-success.notification::after {
+  background: var(--green);
+}
+
+.notification-error.notification::after {
+  background: var(--red);
+}
+.notification-warning.notification::after {
+  background: var(--yellow);
+}
+
+
+.notification span {
+  font-size: 14px;
+}
+.notification-success {
+  color: var(--green);
+}
+
+.notification-error {
+  color: var(--red);
+}
+.notification-warning {
+  color: var(--yellow);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}

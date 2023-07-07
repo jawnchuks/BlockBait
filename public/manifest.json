@@ -1,24 +1,35 @@
 {
   "manifest_version": 3,
-  "name": "nextjs-chrome-extension",
-  "short_name": "nextjs",
-  "version": "1.0.0",
-  "description": "Chrome extension made with NextJS",
-  "icons": {
-    "16": "/icons/favicon-16.png",
-    "32": "/icons/favicon-32.png",
-    "48": "/icons/favicon-48.png",
-    "128": "/icons/favicon-128.png"
-  },
-  "permissions": [],
-  "content_scripts": [
-    {
-      "matches": ["https://*/*", "http://*/*"],
-      "js": ["inject.js"]
-    }
+  "name": "BlockBait - Phish blocking Chrome extension",
+  "short_name": "BlockBait",
+  "version": "1.1.0",
+  "description": "Phish blocking Chrome extension",
+   "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "notifications",
+    "history"
   ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+
+   "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "./icons/Logo-16.png",
+      "32": "./icons/Logo-32.png",
+      "48": "./icons/Logo-48.png",
+      "128": "./icons/Logo-128.png"
+    }
+  },
+    "icons": {
+    "16": "./icons/Logo-16.png",
+    "32": "./icons/Logo-32.png",
+    "48": "./icons/Logo-48.png",
+    "128": "./icons/Logo-128.png"
+  },
   "host_permissions": ["<all_urls>"],
-  "action": {
-    "default_popup": "index.html"
-  }
+  "options_page" : "settings.html"
 }

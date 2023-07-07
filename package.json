@@ -1,42 +1,30 @@
 {
-  "name": "nextjs-chrome-extension",
+  "name": "block-bait-v1",
   "private": true,
   "scripts": {
-    "dev": "npm-watch",
-    "build": "next build && next export && npm run lint:build",
-    "lint:build": "mv out/_next out/assets && gsed -i 's/\\/_next/\\/assets/g' out/**.html",
-    "lint": "next lint"
+    "dev": "next dev",
+    "build:extension": "next build && next export && node -e \"const fs = require('fs'); const path = require('path'); const outDir = path.resolve(__dirname, 'out'); fs.readdirSync(outDir).forEach(file => { if (file.startsWith('_next') || file.startsWith('_app') || file.startsWith('_document')) { fs.renameSync(path.join(outDir, file), path.join(outDir, file.replace(/^_/, ''))); } }); fs.readdirSync(outDir).filter(file => file.endsWith('.html')).forEach(file => { const filePath = path.join(outDir, file); let fileContent = fs.readFileSync(filePath, 'utf8'); fileContent = fileContent.replace(/_next\\//g, 'next/'); fs.writeFileSync(filePath, fileContent); });\""
   },
   "dependencies": {
+    "chrome-extension-async": "^3.4.1",
+    "classnames": "^2.3.2",
+    "css-loader": "^6.7.3",
     "next": "12.1.6",
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^10.0.0",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "webpack-cli": "^5.0.2"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.193",
+    "autoprefixer": "^10.4.14",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
-    "npm-watch": "^0.11.0"
-  },
-  "watch": {
-    "build": {
-      "patterns": [
-        ".",
-        "styles/**",
-        "pages/**",
-        "public/**"
-      ],
-      "ignore": [
-        "out",
-        "node_modules",
-        ".next"
-      ],
-      "extensions": [
-        "js",
-        "json",
-        "lock",
-        "tsx",
-        "ts"
-      ]
-    }
+    "npm-watch": "^0.11.0",
+    "postcss": "^8.4.23",
+    "postcss-loader": "^7.3.0",
+    "postcss-preset-env": "^8.3.2",
+    "tailwindcss": "^3.3.2"
   }
 }
